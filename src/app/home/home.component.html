@@ -1,0 +1,30 @@
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="input-group rounded">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Buscar"
+        aria-label="Buscar"
+        aria-describedby="search-addon"
+        [formControl]="searchKey"
+      />
+      <span
+        class="input-group-text border-0"
+        id="search-addon"
+        (click)="search()"
+      >
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-12">
+    <app-article-card
+      [article]="article"
+      class="d-flex justify-content-center mb-3"
+      *ngFor="let article of searchResponse?.data"
+    ></app-article-card>
+  </div>
+</div>
