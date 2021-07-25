@@ -10,6 +10,10 @@ pagination {
       a {
         background-color: $card-color !important;
         border-color: $card-color !important;
+        &:hover {
+          background-color: $primary-color !important;
+          border-color: $primary-color !important;
+        }
       }
     }
   }
