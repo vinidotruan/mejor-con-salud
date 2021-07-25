@@ -11,7 +11,7 @@ import { ArticlesService } from '../shared/services/articles.service';
 export class HomeComponent implements OnInit {
   public searchKey: FormControl = new FormControl('');
   public searchResponse: Response;
-  public currentPage: number = 1;
+  public currentPage: string = '1';
   public maxSize: number = 5;
   constructor(private articleService: ArticlesService) {}
 
@@ -34,7 +34,9 @@ export class HomeComponent implements OnInit {
       });
   };
 
-  teste(eee) {
-    console.log(eee);
-  }
+  orderByRelevance = () => {
+    this.articleService
+      .search(this.searchKey.value, this.currentPage, 'relevance')
+      .subscribe((response) => (this.searchResponse = response));
+  };
 }

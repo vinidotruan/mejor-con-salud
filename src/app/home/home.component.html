@@ -26,6 +26,19 @@
   </small>
 </div>
 
+<div class="row mt-1">
+  <div class="col-12 d-flex justify-content-xl-end align-items-center">
+    <span>Filtrar por mais relevantes </span>
+    <button
+      class="btn btn-primary ml-3"
+      [disabled]="!searchResponse?.data"
+      (click)="orderByRelevance()"
+    >
+      <i class="fas fa-filter"></i>
+    </button>
+  </div>
+</div>
+
 <pagination
   *ngIf="searchResponse?.pages > 0"
   class="pagination mt-1"
