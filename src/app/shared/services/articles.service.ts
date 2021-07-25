@@ -12,8 +12,20 @@ export class ArticlesService extends HttpService {
     super(http);
   }
 
-  public search(term: string): Observable<Response> {
+  public search(
+    term: string,
+    page?: string,
+    orderby?: string
+  ): Observable<Response> {
     const url = `https://api.beta.mejorconsalud.com/wp-json/mc/v2/posts`;
-    return this.get(url, { search: term });
+    if (page && orderby) {
+      return this.get(url, { search: term, page, orderby });
+    } else if (page) {
+      return this.get(url, { search: term, page });
+    } else if (orderby) {
+      return this.get(url, { search: term, orderby });
+    } else {
+      return this.get(url, { search: term });
+    }
   }
 }

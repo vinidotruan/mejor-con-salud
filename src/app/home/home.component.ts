@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   public searchKey: FormControl = new FormControl('');
   public searchResponse: Response;
   public currentPage: number = 1;
+  public maxSize: number = 5;
   constructor(private articleService: ArticlesService) {}
 
   ngOnInit(): void {}
@@ -23,4 +24,17 @@ export class HomeComponent implements OnInit {
         this.searchResponse = response;
       });
   };
+
+  nextPage = ({ page, itemsPerPage }): void => {
+    this.articleService
+      .search(this.searchKey.value, page)
+      .subscribe((response) => {
+        this.searchResponse = response;
+        this.currentPage = page;
+      });
+  };
+
+  teste(eee) {
+    console.log(eee);
+  }
 }

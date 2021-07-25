@@ -10,6 +10,7 @@ body {
   background-color: $background-color !important;
   * {
     color: white !important;
+    transition: 0.3s ease-in-out;
   }
 }
 
@@ -19,4 +20,8 @@ body {
 
 .primary-text {
   color: $primary-color !important;
+}
+
+.grey-text {
+  color: $grey;
 }
