@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ArticleCardComponent],
@@ -16,6 +18,8 @@ import { ArticleCardComponent } from './article-card/article-card.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    PaginationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

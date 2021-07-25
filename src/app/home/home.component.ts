@@ -11,6 +11,7 @@ import { ArticlesService } from '../shared/services/articles.service';
 export class HomeComponent implements OnInit {
   public searchKey: FormControl = new FormControl('');
   public searchResponse: Response;
+  public currentPage: number = 1;
   constructor(private articleService: ArticlesService) {}
 
   ngOnInit(): void {}

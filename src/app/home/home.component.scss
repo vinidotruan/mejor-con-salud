@@ -1,7 +1,8 @@
+@import "../../variables.scss";
 input.form-control {
   background: transparent;
 }
 
 #search-addon {
-  background-color: #f17300;
+  background-color: $primary-color;
 }

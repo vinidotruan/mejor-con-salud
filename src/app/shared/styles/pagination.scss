@@ -1,0 +1,16 @@
+pagination {
+  li {
+    &.page-item.active {
+      a {
+        background-color: $primary-color !important;
+        border-color: $primary-color !important;
+      }
+    }
+    &.page-item:not(.active) {
+      a {
+        background-color: $card-color !important;
+        border-color: $card-color !important;
+      }
+    }
+  }
+}

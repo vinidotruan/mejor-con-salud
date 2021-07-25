@@ -1,12 +1,22 @@
 @import "variables.scss";
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+@import "./app/shared/styles/pagination.scss";
 
 body {
-  background-color: $background-color;
+  background-color: $background-color !important;
   * {
     color: white !important;
   }
 }
 
 .card {
-  background-color: $grey;
+  background-color: $card-color;
+}
+
+.primary-text {
+  color: $primary-color !important;
 }
