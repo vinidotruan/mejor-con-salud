@@ -13,5 +13,10 @@
       <small class="text-muted">{{ castDate(article?.published) }}</small>
     </p>
   </div>
-  <div class="card-footer primary-text">Ler mais</div>
+  <div
+    class="card-footer primary-text"
+    [routerLink]="['/articles', article?.id]"
+  >
+    Ler mais
+  </div>
 </div>

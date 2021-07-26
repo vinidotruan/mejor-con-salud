@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  search = (): void => {
+  public search = (): void => {
     this.articleService
       .search(this.searchKey.value)
       .subscribe((response: Response) => {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       });
   };
 
-  nextPage = ({ page, itemsPerPage }): void => {
+  public nextPage = ({ page, itemsPerPage }): void => {
     this.articleService
       .search(this.searchKey.value, page)
       .subscribe((response) => {
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       });
   };
 
-  orderByRelevance = () => {
+  public orderByRelevance = () => {
     this.articleService
       .search(this.searchKey.value, this.currentPage, 'relevance')
       .subscribe((response) => (this.searchResponse = response));

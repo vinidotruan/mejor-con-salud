@@ -9,9 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ArticleComponent } from './article/article.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ArticleCardComponent],
+  declarations: [AppComponent, HomeComponent, ArticleCardComponent, ArticleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +22,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     HttpClientModule,
     BrowserAnimationsModule,
     PaginationModule.forRoot(),
+    AccordionModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

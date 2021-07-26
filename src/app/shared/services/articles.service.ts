@@ -28,4 +28,9 @@ export class ArticlesService extends HttpService {
       return this.get(url, { search: term });
     }
   }
+
+  public getById = (id: string) => {
+    const url = `https://api.beta.mejorconsalud.com/wp-json/mc/v1/posts/${id}`;
+    return this.get(url);
+  };
 }
