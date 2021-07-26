@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-start">
   <div class="col-xs-12 col-sm-12 col-lg-6">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -7,35 +7,72 @@
           <a>{{ article?.categories[0]?.name }}</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-          {{ article?.title }}
+          <strong class="primary-text">{{ article?.title }}</strong>
         </li>
       </ol>
     </nav>
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-12 col-lg-8">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="primary-text">
+          {{ article?.title }}
+        </h1>
+        <small class="text-muted">
+          Publicado em: {{ dateHelper.castDate(article?.published) }}
+        </small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <img
+          [src]="article?.featured_media['2048x2048']"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-12" [innerHTML]="getSanitizedContent()"></div>
+    </div>
 
-<div class="row d-flex justify-content-center">
-  <div class="col-xs-12 col-sm-12 col-lg-6">
-    <h1 class="primary-text">
-      {{ article?.title }}
-    </h1>
-    <small class="text-muted">
-      Publicado em: {{ dateHelper.castDate(article?.published) }}
-    </small>
+    <div class="row d-flex justify-content-center mb-5">
+      <div class="col-12">
+        <accordion [isAnimated]="true">
+          <accordion-group heading="Biografia">
+            <div [innerHTML]="article?.bibliography"></div>
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row d-flex justify-content-center">
-  <div class="col-xs-12 col-sm-12 col-lg-6">
-    <img
-      [src]="article?.featured_media['2048x2048']"
-      class="img-fluid"
-      alt=""
-    />
+
+  <div class="col-xs-12 col-lg-4">
+    <div class="row rounded-pill shadow bg-grey p-1 mt-5">
+      <div class="col-3 d-flex author-picture">
+        <img
+          [src]="article?.author?.picture"
+          alt=""
+          class="img-thumbnail rounded-circle my-auto"
+        />
+      </div>
+      <div class="col-9 d-flex justify-content-start align-items-center">
+        <span>
+          Criado por: <strong>{{ article?.author?.name }}</strong>
+        </span>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <span
+          *ngFor="let tag of article?.tags"
+          class="badge rounded-pill bg-primary mx-1"
+        >
+          {{ tag?.name }}
+        </span>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row d-flex justify-content-center">
-  <div
-    class="col-xs-12 col-sm-12 col-lg-6"
-    [innerHTML]="getSanitizedContent()"
-  ></div>
 </div>

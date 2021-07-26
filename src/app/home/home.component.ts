@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   public searchResponse: Response;
   public currentPage: string = '1';
   public maxSize: number = 5;
+  public isFiltered: boolean = false;
+
   constructor(private articleService: ArticlesService) {}
 
   ngOnInit(): void {}
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
       .search(this.searchKey.value)
       .subscribe((response: Response) => {
         this.searchResponse = response;
+        this.isFiltered = false;
       });
   };
 
@@ -37,6 +40,9 @@ export class HomeComponent implements OnInit {
   public orderByRelevance = () => {
     this.articleService
       .search(this.searchKey.value, this.currentPage, 'relevance')
-      .subscribe((response) => (this.searchResponse = response));
+      .subscribe((response) => {
+        this.searchResponse = response;
+        this.isFiltered = true;
+      });
   };
 }

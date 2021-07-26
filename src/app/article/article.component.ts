@@ -28,4 +28,8 @@ export class ArticleComponent implements OnInit {
     const style = '<style> img.size-full { width: 100% !important }</style>';
     return this.sanitizer.bypassSecurityTrustHtml(this.article.content + style);
   };
+
+  public getSanitized = (content: string): SafeHtml => {
+    return this.sanitizer.bypassSecurityTrustHtml(content);
+  };
 }

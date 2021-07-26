@@ -3,7 +3,6 @@
 @import "~bootstrap/scss/bootstrap";
 
 /* Importing Datepicker SCSS file. */
-@import "~ngx-bootstrap/datepicker/bs-datepicker";
 @import "./app/shared/styles/pagination.scss";
 
 body {
@@ -15,19 +14,28 @@ body {
 }
 
 .breadcrumb {
-  background-color: $background-color;
+  background-color: $background-color !important;
 }
 .card {
-  background-color: $card-color;
+  background-color: $card-color !important;
+}
+
+.bg-grey {
+  background-color: $grey !important;
 }
 
 .primary-text {
   color: $primary-color !important;
 }
 
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.btn-second {
+  background-color: $blue !important;
+}
+
 .grey-text {
   color: $grey;
 }
-
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";

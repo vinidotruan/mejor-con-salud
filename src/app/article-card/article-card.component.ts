@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DateHelperService } from '../shared/services/date-helper.service';
 
 @Component({
   selector: 'app-article-card',
@@ -7,13 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ArticleCardComponent implements OnInit {
   @Input() public article;
-  constructor() {}
+  constructor(public dateHelper: DateHelperService) {}
 
   ngOnInit(): void {}
-
-  public castDate = (date: string): string => {
-    return new Date(date).toLocaleDateString();
-  };
 
   public limtitText = (text: string, limiter: number): string => {
     return text.slice(0, limiter) + '...(ler mais)';

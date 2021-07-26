@@ -1,7 +1,9 @@
 :host {
-  img {
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto;
+  .author-picture {
+    padding: 0 !important;
+    .img-thumbnail {
+      background-color: #303038;
+      border: 3px solid #f04e60;
+    }
   }
 }

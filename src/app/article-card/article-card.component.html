@@ -10,7 +10,9 @@
       {{ limtitText(article?.headline, 155) }}
     </p>
     <p class="card-text">
-      <small class="text-muted">{{ castDate(article?.published) }}</small>
+      <small class="text-muted">{{
+        dateHelper.castDate(article?.published)
+      }}</small>
     </p>
   </div>
   <div
