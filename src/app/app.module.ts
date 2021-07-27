@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,13 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ArticleCardComponent, ArticleComponent, LoaderComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ArticleCardComponent,
+    ArticleComponent,
+    LoaderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,11 +37,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     ModalModule.forRoot(),
   ],
-  providers: [],
+  providers: [Meta],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,7 +4,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
         <li class="breadcrumb-item">
-          <a>{{ article?.categories[0]?.name }}</a>
+          <a>{{ article?.categories ? article?.categories[0]?.name : "--" }}</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
           <strong class="primary-text">{{ article?.title }}</strong>
@@ -28,7 +28,11 @@
     <div class="row">
       <div class="col-12">
         <img
-          [src]="article?.featured_media['2048x2048']"
+          [src]="
+            article?.featured_media
+              ? article?.featured_media['2048x2048']
+              : 'assets/not_found.jpg'
+          "
           class="img-fluid"
           alt=""
         />

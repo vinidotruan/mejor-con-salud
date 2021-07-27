@@ -3,6 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ArticlesService } from '../shared/services/articles.service';
 import { DateHelperService } from '../shared/services/date-helper.service';
+import { LoaderHelperService } from '../shared/services/loader-helper.service';
 
 @Component({
   selector: 'app-article',
@@ -15,13 +16,18 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticlesService,
     private sanitizer: DomSanitizer,
-    public dateHelper: DateHelperService
+    public dateHelper: DateHelperService,
+    private loaderHelperService: LoaderHelperService
   ) {}
 
   ngOnInit(): void {
+    this.loaderHelperService.showLoader();
     this.articleService
       .getById(this.route.snapshot.params.article)
-      .subscribe((response) => (this.article = response));
+      .subscribe((response) => {
+        this.article = response;
+        this.loaderHelperService.hideLoader();
+      });
   }
 
   public getSanitizedContent = (): SafeHtml => {

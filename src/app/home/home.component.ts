@@ -42,9 +42,10 @@ export class HomeComponent implements OnInit {
       this.firstSearch = false;
       return;
     }
+    const orderBy = this.isFiltered ? 'relevance' : null;
     this.loaderHelperService.showLoader();
     this.articleService
-      .search(this.searchKey.value, page)
+      .search(this.searchKey.value, page, orderBy)
       .subscribe((response) => {
         this.searchResponse = response;
         this.currentPage = page;
