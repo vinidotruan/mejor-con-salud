@@ -13,6 +13,10 @@ export class ArticleCardComponent implements OnInit {
   ngOnInit(): void {}
 
   public limtitText = (text: string, limiter: number): string => {
-    return text.slice(0, limiter) + '...(ler mais)';
+    if (text) {
+      return text.length > limiter
+        ? text.slice(0, limiter) + '...(ler mais)'
+        : text + '...(ler mais)';
+    }
   };
 }

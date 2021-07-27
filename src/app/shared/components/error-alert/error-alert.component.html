@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Ops...</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  Houve um erro ao tentar realizar sua requisição, por favor tente novamente
+  mais tarde
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-second" (click)="bsModalRef.hide()">
+    continuar
+  </button>
+</div>

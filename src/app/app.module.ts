@@ -15,6 +15,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ErrorAlertComponent } from './shared/components/error-alert/error-alert.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ArticleCardComponent,
     ArticleComponent,
     LoaderComponent,
+    ErrorAlertComponent,
   ],
   imports: [
     BrowserModule,

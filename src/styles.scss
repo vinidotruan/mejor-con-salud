@@ -41,7 +41,12 @@ body {
 }
 
 .modal {
-  * {
-    background-color: transparent;
+  .modal-content {
+    background-color: $background-color;
+  }
+  .loader {
+    * {
+      background-color: transparent;
+    }
   }
 }

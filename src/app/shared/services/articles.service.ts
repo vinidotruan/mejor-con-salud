@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Response } from '../models/response';
+import { GenericModalHelperService } from './generic-modal-helper.service';
 import { HttpService } from './http.service';
 
 @Injectable({
