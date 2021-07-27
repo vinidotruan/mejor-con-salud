@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@shared-components": ["src/app/shared/components/*"]
+      // "@shared-components/": ["src/app/shared/components/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

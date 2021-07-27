@@ -39,3 +39,9 @@ body {
 .grey-text {
   color: $grey;
 }
+
+.modal {
+  * {
+    background-color: transparent;
+  }
+}

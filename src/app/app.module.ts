@@ -13,9 +13,11 @@ import { ArticleComponent } from './article/article.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ArticleCardComponent, ArticleComponent],
+  declarations: [AppComponent, HomeComponent, ArticleCardComponent, ArticleComponent, LoaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +33,7 @@ import { environment } from '../environments/environment';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

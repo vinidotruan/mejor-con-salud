@@ -14,7 +14,7 @@ export class ArticlesService extends HttpService {
 
   public search(
     term: string,
-    page?: string,
+    page?: number,
     orderby?: string
   ): Observable<Response> {
     const url = `https://api.beta.mejorconsalud.com/wp-json/mc/v2/posts`;

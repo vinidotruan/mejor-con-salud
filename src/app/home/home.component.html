@@ -40,13 +40,14 @@
     </button>
   </div>
 </div>
-
+{{ currentPage }}
 <pagination
   *ngIf="searchResponse?.pages > 0"
   class="pagination mt-1"
-  [totalItems]="searchResponse?.pages"
-  (pageChanged)="nextPage($event)"
+  [totalItems]="searchResponse?.size"
+  (pageChanged)="changePage($event)"
   [maxSize]="maxSize"
+  [(ngModel)]="currentPage"
 >
 </pagination>
 
