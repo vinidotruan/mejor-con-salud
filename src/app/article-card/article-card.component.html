@@ -1,18 +1,19 @@
 <div class="card shadow w-100 mt-3">
   <img
-    [src]="article?.featured_media['2048x2048']"
+    [src]="article?.featured_media?.thumbnail"
+    error="assets/not_found.jpg"
     class="card-img-top"
-    alt="..."
+    alt="thumbnail"
   />
   <div class="card-body">
     <h5 class="card-title">{{ article?.title }}</h5>
     <p class="card-text">
-      {{ limtitText(article?.headline, 155) }}
+      {{ limtitText(article?.headline, 155) || "Sem headline" }}
     </p>
     <p class="card-text">
-      <small class="text-muted">{{
-        dateHelper.castDate(article?.published)
-      }}</small>
+      <small class="text-muted">
+        {{ dateHelper.castDate(article?.published) }}
+      </small>
     </p>
   </div>
   <div

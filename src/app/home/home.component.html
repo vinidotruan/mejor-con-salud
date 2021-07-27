@@ -40,15 +40,6 @@
     </button>
   </div>
 </div>
-<pagination
-  *ngIf="searchResponse?.pages > 0"
-  class="pagination mt-1"
-  [totalItems]="searchResponse?.size"
-  (pageChanged)="changePage($event)"
-  [maxSize]="maxSize"
-  [(ngModel)]="currentPage"
->
-</pagination>
 
 <div class="row mt-3">
   <div
@@ -62,5 +53,19 @@
     *ngFor="let article of searchResponse?.data"
   >
     <app-article-card [article]="article" class="mb-3"></app-article-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 d-flex justify-content-center">
+    <pagination
+      *ngIf="searchResponse?.pages > 0"
+      class="pagination mt-1"
+      [totalItems]="searchResponse?.size"
+      (pageChanged)="changePage($event)"
+      [maxSize]="maxSize"
+      [(ngModel)]="currentPage"
+    >
+    </pagination>
   </div>
 </div>

@@ -18,6 +18,9 @@ body {
 }
 .card {
   background-color: $card-color !important;
+  .card-body {
+    min-height: 18rem;
+  }
 }
 
 .bg-grey {

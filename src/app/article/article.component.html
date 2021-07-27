@@ -57,8 +57,10 @@
     <div class="row rounded-pill shadow bg-grey p-1 mt-5">
       <div class="col-3 d-flex author-picture">
         <img
-          [src]="article?.author?.picture"
-          alt=""
+          [src]="
+            article?.author ? article?.author?.picture : 'assets/not_found.jpg'
+          "
+          alt="author pic"
           class="img-thumbnail rounded-circle my-auto"
         />
       </div>

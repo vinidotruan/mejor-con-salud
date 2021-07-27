@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   public currentPage: number = 1;
   public maxSize: number = 5;
   public isFiltered: boolean = false;
+  public orderBy: any = null;
   /**
    * Solução para poder resetar a paginação sempre
    * que uma pesquisa for feita após a troca de página
@@ -29,25 +30,31 @@ export class HomeComponent implements OnInit {
     private genericModalService: GenericModalHelperService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.articleService.listAll().subscribe((response) => {
+      this.searchResponse = response;
+    });
+  }
 
   public search = (): void => {
     this.currentPage = 1;
     this.loaderHelperService.showLoader();
-    this.articleService.search(this.searchKey.value).subscribe(
-      (response: Response) => {
-        this.searchResponse = response;
-        this.isFiltered = false;
-        this.firstSearch = true;
-      },
-      (error) => {
-        console.log(error);
-        this.genericModalService.showModal(ErrorAlertComponent);
-      },
-      () => {
-        this.loaderHelperService.hideLoader();
-      }
-    );
+    this.articleService
+      .search(this.searchKey.value, this.currentPage)
+      .subscribe(
+        (response: Response) => {
+          this.searchResponse = response;
+          this.isFiltered = false;
+          this.firstSearch = true;
+        },
+        (error) => {
+          console.log(error);
+          this.genericModalService.showModal(ErrorAlertComponent);
+        },
+        () => {
+          this.loaderHelperService.hideLoader();
+        }
+      );
   };
 
   public changePage = ({ page }): void => {
@@ -55,22 +62,24 @@ export class HomeComponent implements OnInit {
       this.firstSearch = false;
       return;
     }
-    const orderBy = this.isFiltered ? 'relevance' : null;
+    this.orderBy = this.isFiltered ? 'relevance' : null;
     this.loaderHelperService.showLoader();
-    this.articleService.search(this.searchKey.value, page, orderBy).subscribe(
-      (response) => {
-        this.searchResponse = response;
-        this.currentPage = page;
-        this.loaderHelperService.hideLoader();
-      },
-      (error) => {
-        console.log(error);
-        this.genericModalService.showModal(ErrorAlertComponent);
-      },
-      () => {
-        this.loaderHelperService.hideLoader();
-      }
-    );
+    this.articleService
+      .search(this.searchKey.value, page, this.orderBy)
+      .subscribe(
+        (response) => {
+          this.searchResponse = response;
+          this.currentPage = page;
+          this.loaderHelperService.hideLoader();
+        },
+        (error) => {
+          console.log(error);
+          this.genericModalService.showModal(ErrorAlertComponent);
+        },
+        () => {
+          this.loaderHelperService.hideLoader();
+        }
+      );
   };
 
   public orderByRelevance = () => {

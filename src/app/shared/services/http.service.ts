@@ -6,16 +6,21 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
+  private url = environment?.apiUrl;
   constructor(protected http: HttpClient) {}
 
   public get = (uri: string, params?: any): Observable<any> => {
     return this.http
-      .get<Observable<any>>(uri, { headers: this.getHeaders(), params })
+      .get<Observable<any>>(`${this.url}/${uri}`, {
+        headers: this.getHeaders(),
+        params,
+      })
       .pipe(retry(1), catchError(this.handleError));
   };
 
